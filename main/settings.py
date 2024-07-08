@@ -13,15 +13,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import dotenv
 import os
-import dj_database_url
 
+dotenv.load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-dotenv.load_dotenv()
-
-URL = os.getenv("URL")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+URL = os.getenv("URL")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -57,7 +56,6 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -96,22 +94,11 @@ DATABASES = {
         "NAME": "food-co-api",
         "ENFORCE_SCHEMA": False,
         "CLIENT": {
-            "host": "mongodb+srv://denisvitor41:7fnN0QQpat5MHxGP@food-co-api.pu9mk5h.mongodb.net/",
+            "host": URL
             # Add any other parameters if needed
         },
     }
 }
-
-
-if URL:
-    db_from_env = dj_database_url.config(
-        default=URL, conn_max_age=500, ssl_require=True)
-    DATABASES['default'].update(db_from_env)
-    DEBUG = False
-
-
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 # Password validation
