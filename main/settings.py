@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure--e5e-soc6dc@27)4d-uvcw2t!pfznqxjp1^m0*)mxf&3$^l)&(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = [".vercel.app"]
 
 
 # Application definition
@@ -45,7 +45,7 @@ DEFAULT_APPS = [
 INSTALLED_APPS = MY_APPS + THIRD_PARTY_APPS + DEFAULT_APPS
 
 REST_FRAMEWORK = {
-    'COERCE_DECIMAL_TO_STRING': True,
+    "COERCE_DECIMAL_TO_STRING": True,
 }
 
 MIDDLEWARE = [
@@ -88,7 +88,8 @@ DATABASES = {
         "NAME": "food-co-api",
         "ENFORCE_SCHEMA": False,
         "CLIENT": {
-            "host": "mongodb+srv://denisvitor41:7fnN0QQpat5MHxGP@food-co-api.pu9mk5h.mongodb.net/?retryWrites=true&w=majority&appName=food-co-api"
+            "host": "mongodb+srv://denisvitor41:7fnN0QQpat5MHxGP@food-co-api.pu9mk5h.mongodb.net/",
+            # Add any other parameters if needed
         },
     }
 }

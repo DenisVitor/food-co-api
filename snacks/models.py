@@ -33,9 +33,7 @@ class Snack(models.Model):
     prepare = models.CharField(
         max_length=100, choices=PrepareChoices.choices, default=PrepareChoices.FRIED
     )
-    price = models.DecimalField(
-        max_digits=4, decimal_places=2, null=True
-    )
+    price = models.DecimalField(max_digits=4, decimal_places=2, null=True)
     description = models.TextField()
     rating = models.DecimalField(max_digits=2, decimal_places=1, null=True)
     size = models.CharField(
