@@ -27,6 +27,7 @@ class OrderSerializer(serializers.ModelSerializer):
             "order_updated",
             "burger",
             "snack",
+            "status",
             "drink",
             "pizza",
         ]
