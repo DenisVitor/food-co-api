@@ -2,7 +2,12 @@ from django.db import models
 from uuid import uuid4
 from clients.models import Client
 
+
 # Create your models here.
+class StatusChoices(models.TextChoices):
+    DONE = "Done"
+    PENDING = "Pending"
+    CANCELED = "Canceled"
 
 
 class Order(models.Model):
@@ -13,6 +18,10 @@ class Order(models.Model):
     total_price = models.DecimalField(max_digits=6, decimal_places=2, blank=True)
     ordered_since = models.DateTimeField(auto_now_add=True)
     order_updated = models.DateTimeField(auto_now=True)
+    status = models.CharField(
+        max_length=200,
+        choices=StatusChoices.choices, default=StatusChoices.PENDING
+    )
     burger = models.ManyToManyField("burgers.Burger", related_name="orders")
     snack = models.ManyToManyField("snacks.Snack", related_name="orders")
     drink = models.ManyToManyField("drinks.Drink", related_name="orders")

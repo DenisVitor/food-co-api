@@ -32,6 +32,7 @@ class Burger(models.Model):
     image = models.TextField(blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2, blank=True)
     rating = models.DecimalField(max_digits=2, decimal_places=1, blank=True)
+    quantity = models.IntegerField(default=1)
     patty_one = models.CharField(
         max_length=100, choices=PattyChoices.choices, default=PattyChoices.BURGER
     )

@@ -39,3 +39,4 @@ class Snack(models.Model):
     size = models.CharField(
         max_length=100, choices=SizeChoices.choices, default=SizeChoices.REGULAR
     )
+    quantity = models.IntegerField(default=1)
